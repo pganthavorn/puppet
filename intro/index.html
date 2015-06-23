@@ -126,6 +126,21 @@ Jun 22 10:36:54 clienthost puppet-agent[8697]: Applied catalog in 1.65 seconds
 
 </pre>
 <p class="bottom-three">
+<h4>Sequence of action</h4>
+<pre>
+         Client                               Server
+
+       initiate puppet run 
+           ---------------------------------->
+                                             Compile catalog
+            <--------------------------------
+                                          sends catalog to client
+       receives catalog
+       apply/enforce catalog
+        sends report ------------------------->
+                                             process/store reports
+</pre>
+<p class="bottom-three">
 <h4>Why use Puppet?</h4>
 <ul>
 <li>You can manage more servers with less people.
